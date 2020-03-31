@@ -133,6 +133,7 @@ function transition(pageFrom, pageTo) {
 function onload() {
   $('#options').hide();
   $('#patchnotes').hide();
+  $('#game-container').hide();
   const theme = getCookie('theme');
   const particlesState = getCookie('particlesState');
   particlesTrigger(false);
@@ -215,3 +216,11 @@ function updateParticles() {
 
 let tablelength = $('#patchtable tr').length;
 $('#totalpatch').html(tablelength - 2);
+
+function createGame(mode) {
+  switch (mode) {
+    case "single":
+      const game = new Game();
+    break
+  }
+}

@@ -17,7 +17,7 @@
             <div id="home">
                 <h1>Snek Online</h1>
                 <h2>By Noah Lavelle</h2>
-                <a class="btn animsition-link" id="btn-single">Single Player</a>
+                <a onclick="transition('home', 'game-container'); createGame('single');" class="btn animsition-link" id="btn-single">Single Player</a>
                 <a class="btn" id="btn-multi">Multiplayer - WIP</a>
                 <a onclick="transition('home', 'options')" class="btn" id="btn-options">Options</a>
                 <a onclick="transition('home', 'patchnotes')" class="btn" id="btn-patch">Patch Notes</a>
@@ -81,17 +81,20 @@
                 </div>
             </div>
 
-            <div id="game-container">
-                <canvas width="90%" height="90%" id="game"></canvas>
-            </div>
+            
         </div>
+
+        <div id="game-container">
+          <canvas width="750" height="750"id="game"></canvas>
+      </div>
+
     </section>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="/particles/particles.min.js"></script>
-    <script src="/js/app.js"></script>
     <script src="/js/game.js"></script>
-    <script src="/js/canvas.js"></script>
+    <script src="/js/app.js"></script>
+
 
 </body>
 
