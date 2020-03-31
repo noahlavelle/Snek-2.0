@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,900&display=swap');
+
+html {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  --btn: #9966cc;
+  --btnShadow: #404040;
+  --bg: #fff;
+  --color: #232323;
+  --subColor: hsl(0, 0%, 46%);
+  --fieldColor: #D5BADB;
+  --particlesColor: #b19cd9;
+}
+
+
+html[data-theme='Snek Dark'] {
+  background: var(--lightBg);
+  --btn: #7289DA;
+  --btnShadow: #2C2F33;
+  --bg: #23272A;
+  --color: #fff;
+  --subColor: hsl(255, 0%, 80%);
+  --fieldColor: #2C2F33;
+  --particlesColor: #89cff0;
+}
+
+html[data-theme='OLED Dark'] {
+  background: var(--lightBg);
+  --btn: #1f1f1f;
+  --btnShadow: #2C2F33;
+  --bg: hsl(0, 0%, 0%);
+  --color: #fff;
+  --subColor: hsl(255, 0%, 80%);
+  --fieldColor: #1f1f1f;
+  --particlesColor: #666666;
+}
+
+html[data-theme='Banana'] {
+  background: var(--lightBg);
+  --btn: #FFBD07;
+  --btnShadow: #ffae42;
+  --bg: #FFED83;
+  --color: #fff;
+  --subColor: #fff;
+  --fieldColor: #ffae42;
+  --particlesColor: #FFBD07;
+}
+
+.switch-wrapper {
+  width: 23em;
+  padding: 0.25em 0 0.25em 0;
+  text-align: center;
+  font: inherit;
+  border: none;
+  border-bottom: 3px solid var(--btn) !important;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  margin-bottom: 1em;
+  color: var(--color);
+  background-color: var(--fieldColor);
+  
+}
+
+.switch-pad {
+  margin-left: 50%;
+}
+
+
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  color: var(--color);
+}
+
+body {
+  background-color: var(--bg);
+  font-family: 'Open Sans', sans-serif;
+  position: absolute;
+  width: 100%;
+  transition: background-color 0.25s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+h2 {
+  font-size: 25px;
+  color: var(--subColor);
+  font-family: inherit;
+}
+
+.particles-js-canvas-el {
+  min-height: 100vh;
+}
+
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.particles-js-canvas-el {
+  height: 100% !important;
+}
+

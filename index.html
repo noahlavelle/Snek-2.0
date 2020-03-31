@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snek</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/objects.css">
+    <link rel="stylesheet" href="/css/master.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body onload="onload()">
+    <section id="particles-js">
+        <div class="container">
+            <div id="home">
+                <h1>Snek Online</h1>
+                <h2>By Noah Lavelle</h2>
+                <a class="btn animsition-link" id="btn-single">Single Player</a>
+                <a class="btn" id="btn-multi">Multiplayer - WIP</a>
+                <a onclick="transition('home', 'options')" class="btn" id="btn-options">Options</a>
+                <a onclick="transition('home', 'patchnotes')" class="btn" id="btn-patch">Patch Notes</a>
+            </div>
+            <div id="options">
+                <div class="switch-wrapper">Animated Particle Background:
+                    <li class="switch-pad"></li>
+                    <div class="switch r" id="switch">
+                        <input type="checkbox" class="checkbox" onclick="particlesTrigger(true)">
+                        <div class="knobs"></div>
+                        <div class="layer"></div>
+                    </div>
+                </div>
+                <select id="theme-select">
+                    <option>Light</option>
+                    <option>Snek Dark</option>
+                    <option>OLED Dark</option>
+                    <option>Banana</option>
+                </select> <br>
+                <a onclick="transition('options', 'home')" class="btn btn-back">Back to Home</a>
+            </div>
+
+
+            <div id="patchnotes">
+                <table>
+                    <tr>
+                      <th>Date</th>
+                      <th>Type</th>
+                      <th>Notes</th>
+                    </tr>
+                    <tr>
+                      <td>Peter</td>
+                      <td>Griffin</td>
+                    </tr>
+                    <tr>
+                      <td>Lois</td>
+                      <td>Griffin</td>
+                    </tr>
+                  </table>
+                <a onclick="transition('patchnotes', 'home')" class="btn btn-back">Back to Home</a>
+            </div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="/particles/particles.min.js"></script>
+    <script src="/js/app.js"></script>
+
+</body>
+
+</html>
