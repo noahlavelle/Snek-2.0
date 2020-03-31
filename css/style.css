@@ -105,11 +105,100 @@ h2 {
 
 .container {
   position: fixed;
+  margin-left: 50%;
   top: 50%;
-  left: 50%;
+  display: block;
   transform: translate(-50%, -50%);
+}
+
+.container .patch {
+  margin-top: 220px;
 }
 
 .particles-js-canvas-el {
   height: 100% !important;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid var(--btn);
+}
+
+table thead th:nth-child(1) {
+  width: 30%;
+}
+
+table thead th:nth-child(1):nth-child(2) {
+  width: 20%;
+}
+
+table thead th:nth-child(1):nth-child(3) {
+  width: 15%;
+}
+
+table thead th:nth-child(1):nth-child(4) {
+  width: 35%;
+}
+
+table th,
+table td {
+  padding: 20px;
+  color: var(--color);
+}
+
+table thead th,
+table tfoot th {
+  font-family: inherit;
+}
+
+table th {
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+table td {
+  letter-spacing: 1px;
+}
+
+table thead,
+table tfoot {
+  background-color: var(--fieldColor);
+  color: var(--color);
+}
+
+table thead th,
+table tfoot th,
+table tfoot td {
+  background: var(--fieldColor);
+  border: 2px solid var(--btn);
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: var(--bg);
+}
+
+table tbody tr:nth-child(even) {
+  background-color: var(--btnShadow);
+}
+
+.under-text {
+  color: var(--color);
+  font-family: inherit;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.link {
+  text-decoration: none !important;
+  font-weight: bold;
+  color: var(--btn);
+}
+
+.sub {
+  text-align: center;
+  padding-bottom: 30px;
+  text-decoration: underline;
 }

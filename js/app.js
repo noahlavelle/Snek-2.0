@@ -1,7 +1,6 @@
 let theme = getCookie('theme');
 let particlesState = getCookie('particlesState');
 
-
 particlesJS("particles-js", {
   "particles": {
     "number": {
@@ -125,21 +124,19 @@ $.fn.toggleAttr = function (attr, attr1, attr2) {
 };
 
 function transition(pageFrom, pageTo) {
-  $('#' + pageFrom).fadeOut(250, function () {
-    $('#' + pageTo).fadeIn(250);
+  $('#' + pageFrom).fadeOut(130, function () {
+    $('#' + pageTo).fadeIn(130);
   });
 
 }
 
 function onload() {
+  $('#options').hide();
+  $('#patchnotes').hide();
   const theme = getCookie('theme');
   const particlesState = getCookie('particlesState');
   particlesTrigger(false);
   $('html').attr('data-theme', theme);
-  $('#home').hide();
-  $('#home').fadeIn(500);
-  $('#options').hide();
-  $('#patchnotes').hide();
   updateParticles()
 }
 
@@ -215,3 +212,6 @@ function updateParticles() {
     }
   }
 }
+
+let tablelength = $('#patchtable tr').length;
+$('#totalpatch').html(tablelength - 2);

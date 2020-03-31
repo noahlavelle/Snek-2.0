@@ -67,7 +67,7 @@ html[data-theme='Banana'] {
   margin-bottom: 1em;
   color: var(--color);
   background-color: var(--fieldColor);
-  
+
 }
 
 .switch-pad {
@@ -110,12 +110,100 @@ h2 {
 
 .container {
   position: fixed;
+  margin-left: 50%;
   top: 50%;
-  left: 50%;
+  display: block;
   transform: translate(-50%, -50%);
+
+  & .patch {
+    margin-top: 220px;
+  }
 }
 
 .particles-js-canvas-el {
   height: 100% !important;
 }
 
+table {
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid var(--btn);
+
+  thead th:nth-child(1) {
+    width: 30%;
+
+    &:nth-child(2) {
+      width: 20%;
+    }
+
+    &:nth-child(3) {
+      width: 15%;
+    }
+
+    &:nth-child(4) {
+      width: 35%;
+    }
+  }
+
+  th,
+  td {
+    padding: 20px;
+    color: var(--color);
+  }
+
+  thead th,
+  tfoot th {
+    font-family: inherit;
+  }
+
+  th {
+    letter-spacing: 1px;
+    text-align: left;
+  }
+
+  td {
+    letter-spacing: 1px;
+  }
+
+  thead,
+  tfoot {
+    background-color: var(--fieldColor);
+    color: var(--color);
+  }
+
+  thead th,
+  tfoot th,
+  tfoot td {
+    background: var(--fieldColor);
+    border: 2px solid var(--btn);
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: var(--bg)
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: var(--btnShadow);
+  }
+}
+
+.under-text {
+  color: var(--color);
+  font-family: inherit;
+  font-size: 20px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.link {
+  text-decoration: none !important;
+  font-weight: bold;
+  color: var(--btn)
+}
+
+.sub {
+  text-align: center;
+  padding-bottom: 30px;
+  text-decoration: underline;
+}
