@@ -79,12 +79,11 @@ class Game {
             end(this)
         }
 
-        this.snake.tail.find(e => {
-            if (e[0] === this.snake.x &&
-                e[1] === this.snake.y && this.started) {
-                end(this)
-            }
-        })
+        if (this.snake.tail.find(e => {
+                return e[0] === this.snake.x && e[1] === this.snake.y;
+            }) && this.started) {
+            end(this)
+        }
 
         if (this.started == false && keyPressed) {
             setTimeout(() => {

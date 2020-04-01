@@ -22,8 +22,7 @@ function end(game) {
     game.snake.x = 0;
     game.snake.y = 0;
     game.snake.moveDir = [0, 0]
-    game.food = new Food(game, game.makeFoodCoords(canvas.width), game.makeFoodCoords(canvas.height));
-    clear();
+    game.food = new Food(game.makeFoodCoords(canvas.width), game.makeFoodCoords(canvas.height));
 }
 
 function text(text, line) {
