@@ -95,7 +95,7 @@ class Game {
         if (this.started == false && keyPressed) {
             setTimeout(() => {
                 this.started = true;
-            }, 5000);
+            }, 1000);
         }
 
         for (let i = 1; i < this.snake.tail.length; i++) {
