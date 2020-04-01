@@ -2,12 +2,12 @@ const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 const w = canvas.width;
 const h = canvas.height;
-
-const gridsize = 30;
+const gridSize = 30
+let keyPressed = false;
 
 function draw(x, y, color) {
     ctx.fillStyle = color;
-    ctx.fillRect(x, y, gridsize, gridsize);
+    ctx.fillRect(x, y, gridSize, gridSize);
 }
 
 function clear() {
@@ -18,8 +18,9 @@ function clear() {
 function end(game) {
     game.started = false;
     game.snake.length = 4;
-    game.snake.x = w / 2;
-    game.snake.y = h / 2;
+    game.snake.tail.length = 1;
+    game.snake.x = 0;
+    game.snake.y = 0;
     game.snake.moveDir = [0, 0]
     game.food = new Food(game, game.makeFoodCoords(canvas.width), game.makeFoodCoords(canvas.height));
     clear();
