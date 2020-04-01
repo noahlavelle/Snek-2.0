@@ -7,10 +7,10 @@ class Food {
 }
 
 class Snake {
-    constructor(x, y) {
+    constructor(length, x, y) {
         this.x = x;
         this.y = y;
-        this.length = 4;
+        this.length = length;
         this.moveDir = [0, 0];
         this.tail = []
 
@@ -53,10 +53,11 @@ class Snake {
 
 class Game {
     constructor(startingLength, incrementalSpeed, tailCollision, barriersKill, gridSize) {
-        this.snake = new Snake(0, 0);
+        this.gridSize = gridSize;
+        this.startingLength = startingLength;
+        this.snake = new Snake(startingLength, 0, 0);
         this.snakeColor = $('#btn-single').css('background-color');
         this.started = false;
-        this.gridSize = gridSize;
         this.food = new Food(this.makeFoodCoords(canvas.width), this.makeFoodCoords(canvas.height));
         this.tick(this);
     }
@@ -70,6 +71,7 @@ class Game {
     }
 
     tick() {
+
         if (this.snake.x === this.food.x & this.snake.y === this.food.y) {
             this.snake.length++;
             this.food = new Food(this.makeFoodCoords(canvas.width), this.makeFoodCoords(canvas.height));
@@ -77,13 +79,13 @@ class Game {
 
         if (this.snake.x >= w || this.snake.x < 0 ||
             this.snake.y >= h || this.snake.y < 0) {
-            end(this)
+            end(this, this.startingLength)
         }
 
         if (this.snake.tail.find(e => {
                 return e[0] === this.snake.x && e[1] === this.snake.y;
             }) && this.started) {
-            end(this)
+            end(this, this.startingLength)
         }
 
         if (this.started == false && keyPressed) {
@@ -94,7 +96,7 @@ class Game {
 
 
         this.snake.tail.push([this.snake.x, this.snake.y]);
-        if (this.snake.tail.length > this.snake.length + this.snake.length - 4) {
+        if (this.snake.tail.length > this.snake.length - 1) {
             this.snake.tail.shift();
         }
 
