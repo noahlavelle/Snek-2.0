@@ -2,99 +2,133 @@
 <html lang="en" data-theme="">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snek</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/objects.css">
-    <link rel="stylesheet" href="/css/master.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snek</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/objects.css">
+  <link rel="stylesheet" href="/css/master.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body onload="onload()" scroll="no" style="overflow: hidden">
-    <section id="particles-js">
-        <div class="container">
-            <div id="home">
-                <h1>Snek Online</h1>
-                <h2>By Noah Lavelle</h2>
-                <a onclick="transition('home', 'game-container'); createGame('single');" class="btn animsition-link" id="btn-single">Single Player</a>
-                <a class="btn" id="btn-multi">Multiplayer - WIP</a>
-                <a onclick="transition('home', 'options')" class="btn" id="btn-options">Options</a>
-                <a onclick="transition('home', 'patchnotes')" class="btn" id="btn-patch">Patch Notes</a>
-            </div>
-            <div id="options">
-                <h1 class="sub">Options</h1>
-                <div class="switch-wrapper">Animated Particle Background:
-                    <li class="switch-pad"></li>
-                    <div class="switch r" id="switch">
-                        <input type="checkbox" class="checkbox" onclick="particlesTrigger(true)">
-                        <div class="knobs"></div>
-                        <div class="layer"></div>
-                    </div>
-                </div>
-                <select id="theme-select">
-                    <option>Light</option>
-                    <option>Snek Dark</option>
-                    <option>OLED Dark</option>
-                    <option>Banana</option>
-                </select> <br>
-                <a onclick="transition('options', 'home')" class="btn btn-back">Back to Home</a>
-            </div>
-
-
-            <div id="patchnotes">
-                <h1 class="sub">Patch notes</h1>
-                <table id="patchtable">
-                    <thead>
-                      <tr>
-                        <th scope="col">Date Added</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Description</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">30/03/2020</th>
-                        <td>Addition</td>
-                        <td>Initial Release</td>
-                        <td>Initial Release with limited UI or game logic</td>
-                      </tr>
-                      <tr>
-                        <th scope="row">31/03/2020</th>
-                        <td>Addition / Release</td>
-                        <td>Pushed to Github + UI changes</td>
-                        <td>Finalised UI, finished transitions and cookie settings and pushed to Github</td>
-                      </tr>
-                         
-                    </tbody>
-                    <tfoot>
-                      <tr>
-                        <th scope="row" colspan="2">Total Displayed Patches</th>
-                        <td colspan="2" id="totalpatch"></td>
-                      </tr>
-                    </tfoot>
-                  </table>
-                  <ul class="under-text">For more patchnotes go to the <a href="https://github.com/ZigZagZat/Snek-2.0/commits/master" class="link">GitHub Commit Section</a></ul>
-                <div class="patch container">
-                <a onclick="transition('patchnotes', 'home')" class="btn btn-back">Back to Home</a>
-                </div>
-            </div>
-
-            
+  <section id="particles-js">
+    <div class="container">
+      <div id="home">
+        <h1>Snek Online</h1>
+        <h2>By Noah Lavelle</h2>
+        <a onclick="transition('home', 'singleplayer-options');" class="btn" id="btn-single">Single Player</a>
+        <a class="btn" id="btn-multi">Multiplayer - WIP</a>
+        <a onclick="transition('home', 'options')" class="btn" id="btn-options">Options</a>
+        <a onclick="transition('home', 'patchnotes')" class="btn" id="btn-patch">Patch Notes</a>
+      </div>
+      <div id="options">
+        <h1 class="sub">Options</h1>
+        <div class="switch-wrapper">Animated Particle Background:
+          <li class="switch-pad"></li>
+          <div class="switch r" id="switch">
+            <input type="checkbox" class="checkbox" onclick="particlesTrigger(true)">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+          </div>
         </div>
-
-        <div id="game-container">
-          <canvas width="1800" height="900" id="game" style="position:absolute; top:20px; left:20px; z-index:3"></canvas>
+        <select id="theme-select">
+          <option>-- SELECT THEME --</option>
+          <option>Light</option>
+          <option>Snek Dark</option>
+          <option>OLED Dark</option>
+          <option>Banana</option>
+        </select> <br>
+        <a onclick="transition('options', 'home')" class="btn btn-back">Back to Home</a>
       </div>
 
-    </section>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="/particles/particles.min.js"></script>
-    <script src="/js/app.js"></script>
-    <script src="/js/canvas.js"></script>
-    <script src="/js/game.js"></script>
+      <div id="singleplayer-options">
+        <h1 class="sub">Game Options</h1>
+        <input id="opt-startinglength" type="number" placeholder="Starting Length" min="1"></input> <br>
+        <input id="opt-gridsize" type="number" placeholder="Gridsize" min="1"></input> <br>
+        <select id="barriers-select">
+          <option>-- BARRIER BEHAVYOUR --</option>
+          <option>Kill</option>
+          <option>Rebound & Damage</option>
+          <option>Rebound</option>
+          <option>Link to the other side</option>
+        </select>
+
+        <div class="switch-wrapper">Enable Incremental Speed:
+          <li class="switch-pad"></li>
+          <div class="switch r" id="switch">
+            <input type="checkbox" class="checkbox" id="opt-incrementalspeed">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+          </div>
+        </div>
+
+        <div class="switch-wrapper">Enable Tail Collision:
+          <li class="switch-pad"></li>
+          <div class="switch r" id="switch">
+            <input type="checkbox" class="checkbox" id="opt-tailcollision">
+            <div class="knobs"></div>
+            <div class="layer"></div>
+          </div>
+        </div>
+        <a onclick="transition('singleplayer-options', 'game-container'); createGame('single')" class="btn btn-back" onclick="createGame(single)">Start Game</a>
+      </div>
+
+
+      <div id="patchnotes">
+        <h1 class="sub">Patch notes</h1>
+        <table id="patchtable">
+          <thead>
+            <tr>
+              <th scope="col">Date Added</th>
+              <th scope="col">Type</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">30/03/2020</th>
+              <td>Addition</td>
+              <td>Initial Release</td>
+              <td>Initial Release with limited UI or game logic</td>
+            </tr>
+            <tr>
+              <th scope="row">31/03/2020</th>
+              <td>Addition / Release</td>
+              <td>Pushed to Github + UI changes</td>
+              <td>Finalised UI, finished transitions and cookie settings and pushed to Github</td>
+            </tr>
+
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="2">Total Displayed Patches</th>
+              <td colspan="2" id="totalpatch"></td>
+            </tr>
+          </tfoot>
+        </table>
+        <ul class="under-text">For more patchnotes go to the <a
+            href="https://github.com/ZigZagZat/Snek-2.0/commits/master" class="link">GitHub Commit Section</a></ul>
+        <div class="patch container">
+          <a onclick="transition('patchnotes', 'home')" class="btn btn-back">Back to Home</a>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div id="game-container">
+      <canvas width="1800" height="900" id="game" style="position:absolute; top:20px; left:20px; z-index:3"></canvas>
+    </div>
+
+  </section>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="/particles/particles.min.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/canvas.js"></script>
+  <script src="/js/game.js"></script>
 </body>
 
 </html>

@@ -99,6 +99,32 @@ select {
   background-color: var(--fieldColor);
 }
 
+input {
+  width: 23em;
+  text-align: center;
+  font: inherit;
+  border: none;
+  border-bottom: 3px solid var(--btn) !important;
+  border-radius: 5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+  margin-bottom: 1em;
+  color: var(--color);
+  background-color: var(--fieldColor);
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
 //Switch
 
 *

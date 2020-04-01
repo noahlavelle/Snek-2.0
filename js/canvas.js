@@ -1,4 +1,3 @@
-//canvas setup
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 const w = canvas.width;
@@ -23,6 +22,7 @@ function end(game) {
     game.snake.y = h / 2;
     game.snake.moveDir = [0, 0]
     game.food = new Food(game, game.makeFoodCoords(canvas.width), game.makeFoodCoords(canvas.height));
+    clear();
 }
 
 function text(text, line) {

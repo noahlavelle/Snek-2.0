@@ -133,6 +133,7 @@ function transition(pageFrom, pageTo) {
 function onload() {
   $('#options').hide();
   $('#patchnotes').hide();
+  $('#singleplayer-options').hide();
   $('#game-container').hide();
   const theme = getCookie('theme');
   const particlesState = getCookie('particlesState');
@@ -220,7 +221,12 @@ $('#totalpatch').html(tablelength - 2);
 function createGame(mode) {
   switch (mode) {
     case "single":
-      const game = new Game();
+      const startingLength = $('#opt-startinglength').val();
+      const incrementalSpeed = ! $('#opt-incrementalspeed').is(':disabled');
+      const tailCollision = ! $('#opt-tailcollision').is(':disabled');
+      const barriersKill = $( "#barriers-select option:selected" ).text();
+      const gridSize = $('#opt-gridsize').val();
+      const game = new Game(startingLength);
     break
   }
 }

@@ -74,23 +74,10 @@ class Game {
             this.food = new Food(this, this.makeFoodCoords(canvas.width), this.makeFoodCoords(canvas.height));
         }
 
-        if (this.snake.x < 0) {
-            this.snake.length = this.snake.length - 6;
-            this.snake.tail.splice(this, 6);
-            this.snake.moveDir = [1, 0]
-        } else if (this.snake.x > w) {
-            this.snake.length = this.snake.length - 6;
-            this.snake.tail.splice(this, 6);
-            this.snake.moveDir = [-1, 0]
-        } else if (this.snake.y < 0) {
-            this.snake.length = this.snake.length - 6;
-            this.snake.tail.splice(this, 3);
-            this.snake.moveDir = [0, 1]
-        } else if (this.snake.y > h) {
-            this.snake.length = this.snake.length - 6;
-            this.snake.tail.splice(this, 6);
-            this.snake.moveDir = [0, -1]
-        }
+        if (this.snake.x >= w || this.snake.x < 0 ||
+            this.snake.y >= h || this.snake.x < 0) {
+                end(this)
+            }
 
         if (this.started == false && keyPressed) {
             setTimeout(() => {
