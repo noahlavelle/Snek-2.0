@@ -17,6 +17,7 @@ function clear() {
 }
 
 function end(game) {
+    game.started = false;
     game.snake.length = 4;
     game.snake.x = w / 2;
     game.snake.y = h / 2;
