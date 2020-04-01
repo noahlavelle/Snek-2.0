@@ -75,7 +75,7 @@ class Game {
         }
 
         if (this.snake.x >= w || this.snake.x < 0 ||
-            this.snake.y >= h || this.snake.x < 0) {
+            this.snake.y >= h || this.snake.y < 0) {
             end(this)
         }
 
