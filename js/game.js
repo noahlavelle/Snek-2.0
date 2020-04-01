@@ -52,16 +52,17 @@ class Snake {
 }
 
 class Game {
-    constructor() {
-        this.food = new Food(this.makeFoodCoords(canvas.width), this.makeFoodCoords(canvas.height));
+    constructor(startingLength, incrementalSpeed, tailCollision, barriersKill, gridSize) {
         this.snake = new Snake(0, 0);
         this.snakeColor = $('#btn-single').css('background-color');
-        this.started = false
+        this.started = false;
+        this.gridSize = gridSize;
+        this.food = new Food(this.makeFoodCoords(canvas.width), this.makeFoodCoords(canvas.height));
         this.tick(this);
     }
 
     makeFoodCoords(baseParam) {
-        let coord = Math.round((Math.floor(Math.random() * baseParam - gridSize)) / gridSize) * gridSize;
+        let coord = Math.round((Math.floor(Math.random() * baseParam - this.gridSize)) / this.gridSize) * this.gridSize;
         if (coord < 0) {
             coord = coord + 30;
         }
@@ -88,7 +89,7 @@ class Game {
         if (this.started == false && keyPressed) {
             setTimeout(() => {
                 this.started = true;
-            }, 1000)
+            }, 1)
         }
 
 
@@ -97,15 +98,15 @@ class Game {
             this.snake.tail.shift();
         }
 
-        this.snake.x = Math.round((this.snake.x + this.snake.moveDir[0] * gridSize) / gridSize) * gridSize;
-        this.snake.y = Math.round((this.snake.y + this.snake.moveDir[1] * gridSize) / gridSize) * gridSize;
+        this.snake.x = Math.round((this.snake.x + this.snake.moveDir[0] * this.gridSize) / this.gridSize) * this.gridSize;
+        this.snake.y = Math.round((this.snake.y + this.snake.moveDir[1] * this.gridSize) / this.gridSize) * this.gridSize;
 
         clear()
 
-        draw(this.food.x, this.food.y, '#fff');
-        draw(this.snake.x, this.snake.y, $('#btn-single').css('background-color'))
+        draw(this.food.x, this.food.y, this.gridSize, '#fff');
+        draw(this.snake.x, this.snake.y, this.gridSize, $('#btn-single').css('background-color'))
         for (const tailItem of this.snake.tail) {
-            draw(tailItem[0], tailItem[1], $('#btn-single').css('background-color'));
+            draw(tailItem[0], tailItem[1], this.gridSize, $('#btn-single').css('background-color'));
         }
 
         keyPressed = false;

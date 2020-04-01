@@ -2,10 +2,9 @@ const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
 const w = canvas.width;
 const h = canvas.height;
-const gridSize = 30
 let keyPressed = false;
 
-function draw(x, y, color) {
+function draw(x, y, gridSize, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x, y, gridSize, gridSize);
 }
