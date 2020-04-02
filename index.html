@@ -41,6 +41,8 @@
 
       <div id="singleplayer-options">
         <h1 class="sub">Game Options</h1>
+        <a onclick="transition('singleplayer-options', 'game-container'); createGame('single')"
+          class="btn btn-back" style="margin-bottom: 2em; margin-top: 0" onclick="createGame(single)">Start Game</a>
         <div class="input-wrapper">Starting Length:
           <input id="opt-startinglength" type="number" placeholder="5 recommended" min="1"></input> <br> </div>
         <div class="input-wrapper">Gridsize:
@@ -71,10 +73,7 @@
             <div class="layer"></div>
           </div>
         </div>
-
-        <input id="opt-speed" type="number" placeholder="Refresh Time - lower is faster" min="1"></input> <br>
-        <a onclick="transition('singleplayer-options', 'game-container'); createGame('single')" class="btn btn-back"
-          onclick="createGame(single)">Start Game</a>
+        <a onclick="transition('singleplayer-options', 'home')" class="btn btn-back" id="btn-options" style="margin-top: 1em">BACK TO HOME</a>
       </div>
 
 
