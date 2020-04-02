@@ -140,6 +140,7 @@ function onload() {
   particlesTrigger(false);
   $('html').attr('data-theme', theme);
   updateParticles()
+  displayRefresh()
 }
 
 function particlesTrigger(focus) {
@@ -221,14 +222,26 @@ $('#totalpatch').html(tablelength - 2);
 function createGame(mode) {
   switch (mode) {
     case "single":
-      const startingLength = $('#opt-startinglength').val();
-      const incrementalSpeed = ! document.getElementById("opt-incrementalspeed").checked
+      let startingLength = $('#opt-startinglength').val();
+      const incrementalSpeed = ! document.getElementById("opt-incrementalspeed").checked;
       const speed = $('#opt-speed').val();
       const tailCollision = $( "#tail-collision option:selected" ).text();
       const barriersKill = $( "#barriers-select option:selected" ).text();
-      const gridSize = $('#opt-gridsize').val();
-      const damageAmount = $('#opt-damage').val();
+      let gridSize = $('#opt-gridsize').val();
+      let damageAmount = $('#opt-damage').val();
+      if (startingLength === "" || startingLength == 0) {startingLength = 6}
+      if (gridSize === "" || gridSize == 0) {gridSize = 30}
+      if (damageAmount === "" || damageAmount == 0) {damageAmount = 6}
       const game = new Game(startingLength, incrementalSpeed, speed, tailCollision, barriersKill, gridSize, damageAmount);
     break
+  }
+}
+
+function displayRefresh() {
+  if (! document.getElementById("opt-incrementalspeed").checked) {
+    $('#dispSpeed').fadeOut(250);
+  } else {
+    $('#dispSpeed').fadeIn(250);
+
   }
 }

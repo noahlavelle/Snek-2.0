@@ -40,42 +40,45 @@
       </div>
 
       <div id="singleplayer-options">
-        <h1 class="sub">Game Options</h1>
-        <a onclick="transition('singleplayer-options', 'game-container'); createGame('single')"
-          class="btn btn-back" style="margin-bottom: 2em; margin-top: 0" onclick="createGame(single)">Start Game</a>
-        <div class="input-wrapper">Starting Length:
-          <input id="opt-startinglength" type="number" placeholder="5 recommended" min="1"></input> <br> </div>
-        <div class="input-wrapper">Gridsize:
-          <input id="opt-gridsize" type="number" placeholder="30 recommended" min="1"></input> <br> </div>
+        <div class="absoluteOptions">
+          <h1 class="sub">Game Options</h1>
+          <a onclick="transition('singleplayer-options', 'game-container'); createGame('single')" class="btn btn-back"
+            style="margin-bottom: 2em; margin-top: 0" onclick="createGame(single)">Start Game</a>
+          <div class="input-wrapper">Starting Length:
+            <input id="opt-startinglength" type="number" placeholder="6 Default" min="1"></input> <br> </div>
+          <div class="input-wrapper">Gridsize:
+            <input id="opt-gridsize" type="number" placeholder="30 Default" min="1"></input> <br> </div>
           <div class="input-wrapper">Damage Amount:
-            <input id="opt-damage" type="number" placeholder="6 recommended" min="1"></input> <br> </div>
-        <div class="input-wrapper">Refresh Time:
-          <input id="opt-speed" type="number" placeholder="Lower is faster" min="1"></input> <br>
-        </div>
-        <div class="input-wrapper">Barrier behaviour:
-          <select id="barriers-select">
-            <option>Kill</option>
-            <option>Link</option>
-            <option>Rebound & Damage</option>
-            <option>Rebound</option>
-          </select> <br>
-        </div>
-        <div class="input-wrapper">Tail Collision:
-          <select id="tail-collision">
-            <option>Kill</option>
-            <option>Damage</option>
-            <option>Nothing</option>
-          </select>
-        </div>
+            <input id="opt-damage" type="number" placeholder="6 Default" min="1"></input> <br> </div>
+          <div class="input-wrapper">Barrier behaviour:
+            <select id="barriers-select">
+              <option>Kill</option>
+              <option>Link</option>
+              <option>Rebound & Damage</option>
+              <option>Rebound</option>
+            </select> <br>
+          </div>
+          <div class="input-wrapper">Tail Collision:
+            <select id="tail-collision">
+              <option>Kill</option>
+              <option>Damage</option>
+              <option>Nothing</option>
+            </select>
+          </div>
 
-        <div class="switch-wrapper">Enable Incremental Speed:
-          <div class="switch r" id="switch" style="margin-top: 10px;">
-            <input type="checkbox" class="checkbox" id="opt-incrementalspeed">
-            <div class="knobs"></div>
-            <div class="layer"></div>
+          <div class="switch-wrapper">Enable Incremental Speed:
+            <div class="switch r" id="switch" style="margin-top: 10px;">
+              <input type="checkbox" class="checkbox" id="opt-incrementalspeed" onclick="displayRefresh()">
+              <div class="knobs"></div>
+              <div class="layer"></div>
+            </div>
+          </div>
+          <div class="input-wrapper dispSpeed" id="dispSpeed">Refresh Time:
+            <input id="opt-speed" type="number" placeholder="Lower is faster" min="1"></input> <br>
           </div>
         </div>
-        <a onclick="transition('singleplayer-options', 'home')" class="btn btn-back" id="btn-options" style="margin-top: 1em">BACK TO HOME</a>
+        <a id="singleopt-back" onclick="transition('singleplayer-options', 'home')" class="btn btn-back"
+          style="margin-top: 1em">BACK TO HOME</a>
       </div>
 
 

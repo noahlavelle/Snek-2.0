@@ -53,13 +53,13 @@ function barriers(game, action, length, damageAmount) {
 
 function damage(game, damageAmount) {
     game.snake.length = game.snake.length - damageAmount;
-    game.snake.tail.splice(0, damageAmount);
+    game.snake.tail.splice(this, damageAmount);
 }
 
 function tailCollide(game, action, length, damageAmount) {
     switch (action) {
         case "Kill":
-            end(game, length);
+            end(game, game.startingLength);
             break;
         case "Damage":
             damage(game, damageAmount);

@@ -98,7 +98,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   position: absolute;
   width: 100%;
-  transition: background-color 0.25s ease;
+  transition: 0.25s ease;
 }
 
 * {
@@ -225,3 +225,7 @@ table {
   border: 4px solid var(--btn)
 }
 
+.dispSpeed {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+}

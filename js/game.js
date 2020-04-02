@@ -109,7 +109,7 @@ class Game {
         }
 
         if (this.snake.length <= 0) {
-            end(this, this.snake.startingLength)
+            end(this, this.startingLength);
         }
 
         this.snake.tail.push([this.snake.x, this.snake.y]);
