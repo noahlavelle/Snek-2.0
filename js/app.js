@@ -224,10 +224,9 @@ function createGame(mode) {
       const startingLength = $('#opt-startinglength').val();
       const incrementalSpeed = ! document.getElementById("opt-incrementalspeed").checked
       const speed = $('#opt-speed').val();
-      const tailCollision = ! document.getElementById("opt-tailcollision").checked;
+      const tailCollision = $( "#tail-collision option:selected" ).text();
       const barriersKill = $( "#barriers-select option:selected" ).text();
       const gridSize = $('#opt-gridsize').val();
-      console.log(incrementalSpeed);
       const game = new Game(startingLength, incrementalSpeed, speed, tailCollision, barriersKill, gridSize);
     break
   }

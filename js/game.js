@@ -55,7 +55,8 @@ class Game {
     constructor(startingLength, incrementalSpeed, speed, tailCollision, barriersKill, gridSize) {
         this.speed = speed;
         this.incrementalSpeed = incrementalSpeed;
-        this.tailCollision = tailCollision;
+        this.tailCollision = true;
+        this.tailCollisionMethod = tailCollision;
         this.gridSize = gridSize;
         this.startingLength = startingLength;
         this.snake = new Snake(startingLength, 0, 0);
@@ -97,7 +98,7 @@ class Game {
         if (this.tailCollision && this.snake.tail.find(e => {
                 return e[0] === this.snake.x && e[1] === this.snake.y;
             }) && this.started) {
-            end(this, this.startingLength)
+            tailCollide(this, this.tailCollisionMethod, this.startingLength)
         }
 
         if (this.started == false && keyPressed) {

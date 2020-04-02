@@ -32,6 +32,19 @@ function barriers(game, action, length) {
     }
 }
 
+function tailCollide(game, action, length) {
+    switch (action) {
+        case "Kill":
+            end(game, length);
+            break;
+        case "Damage":
+            game.snake.length - 6;
+            game.snake.tail.splice(this, 6);
+            invun(game);
+            break;
+    }
+}
+
 function invun(game) {
     game.tailCollision = false;
     game.snakeColor = '#fff';
