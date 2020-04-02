@@ -52,7 +52,8 @@ class Snake {
 }
 
 class Game {
-    constructor(startingLength, incrementalSpeed, speed, tailCollision, barriersKill, gridSize) {
+    constructor(startingLength, incrementalSpeed, speed, tailCollision, barriersKill, gridSize, damageAmount) {
+        this.damageAmount = damageAmount;
         this.speed = speed;
         this.incrementalSpeed = incrementalSpeed;
         this.tailCollision = true;
@@ -92,13 +93,13 @@ class Game {
 
         if (this.snake.x >= w || this.snake.x < 0 ||
             this.snake.y >= h || this.snake.y < 0) {
-                barriers(this, this.barriersKill, this.startingLength);
+                barriers(this, this.barriersKill, this.startingLength, this.damageAmount);
         }
 
         if (this.tailCollision && this.snake.tail.find(e => {
                 return e[0] === this.snake.x && e[1] === this.snake.y;
             }) && this.started) {
-            tailCollide(this, this.tailCollisionMethod, this.startingLength)
+            tailCollide(this, this.tailCollisionMethod, this.startingLength, this.damageAmount)
         }
 
         if (this.started == false && keyPressed) {

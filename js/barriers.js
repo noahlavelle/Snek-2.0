@@ -1,4 +1,4 @@
-function barriers(game, action, length) {
+function barriers(game, action, length, damageAmount) {
     switch (action) {
         case "Kill":
             end(game, length);
@@ -17,19 +17,19 @@ function barriers(game, action, length) {
         case "Rebound & Damage":
             if (game.snake.x < 0) {
                 game.snake.moveDir = [1, 0];
-                damage(game);
+                damage(game, damageAmount);
                 invun(game);
             } else if (game.snake.x > w) {
                 game.snake.moveDir = [-1, 0];
-                damage(game);
+                damage(game, damageAmount);
                 invun(game);
             } else if (game.snake.y > h) {
                 game.snake.moveDir = [0, -1];
-                damage(game);
+                damage(game, damageAmount);
                 invun(game);
             } else if (game.snake.y < 0) {
                 game.snake.moveDir = [0, 1];
-                damage(game);
+                damage(game, damageAmount);
                 invun(game);
             }
             break;
@@ -51,18 +51,18 @@ function barriers(game, action, length) {
     }
 }
 
-function damage(game) {
-    game.snake.length = game.snake.length - 6;
-    game.snake.tail.splice(0, 6);
+function damage(game, damageAmount) {
+    game.snake.length = game.snake.length - damageAmount;
+    game.snake.tail.splice(0, damageAmount);
 }
 
-function tailCollide(game, action, length) {
+function tailCollide(game, action, length, damageAmount) {
     switch (action) {
         case "Kill":
             end(game, length);
             break;
         case "Damage":
-            damage(game);
+            damage(game, damageAmount);
             invun(game);
             break;
     }

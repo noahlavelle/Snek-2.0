@@ -227,7 +227,8 @@ function createGame(mode) {
       const tailCollision = $( "#tail-collision option:selected" ).text();
       const barriersKill = $( "#barriers-select option:selected" ).text();
       const gridSize = $('#opt-gridsize').val();
-      const game = new Game(startingLength, incrementalSpeed, speed, tailCollision, barriersKill, gridSize);
+      const damageAmount = $('#opt-damage').val();
+      const game = new Game(startingLength, incrementalSpeed, speed, tailCollision, barriersKill, gridSize, damageAmount);
     break
   }
 }
