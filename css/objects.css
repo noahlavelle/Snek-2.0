@@ -102,7 +102,6 @@ select {
   -moz-appearance: none;
   text-indent: 1px;
   text-overflow: '';
-  margin-bottom: 1em;
   color: var(--color);
   background-color: var(--fieldColor);
 }
@@ -116,9 +115,7 @@ input {
   border-radius: 5px;
   -webkit-appearance: none;
   -moz-appearance: none;
-  text-indent: 1px;
   text-overflow: '';
-  margin-bottom: 1em;
   color: var(--color);
   background-color: var(--fieldColor);
 }
@@ -142,7 +139,8 @@ input[type=number]::-webkit-outer-spin-button {
   outline: none;
 }
 
-.knobs, .layer {
+.knobs,
+.layer {
   position: absolute;
   top: 0;
   right: 0;
@@ -160,7 +158,8 @@ input[type=number]::-webkit-outer-spin-button {
   border: 2px solid var(--btn);
 }
 
-.switch.r, .switch.r .layer {
+.switch.r,
+.switch.r .layer {
   border-radius: 100px;
 }
 
@@ -221,4 +220,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 #switch .checkbox:checked ~ .layer {
   background-color: #fcebeb;
+}
+
+.switch-pad {
+  margin-top: 30px;
 }

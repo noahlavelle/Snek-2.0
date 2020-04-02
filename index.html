@@ -24,8 +24,7 @@
       <div id="options">
         <h1 class="sub">Options</h1>
         <div class="switch-wrapper">Animated Particle Background:
-          <li class="switch-pad"></li>
-          <div class="switch r" id="switch">
+          <div class="switch r" id="switch" style="margin-top: 10px;">
             <input type="checkbox" class="checkbox" onclick="particlesTrigger(true)">
             <div class="knobs"></div>
             <div class="layer"></div>
@@ -42,35 +41,40 @@
 
       <div id="singleplayer-options">
         <h1 class="sub">Game Options</h1>
-        <input id="opt-startinglength" type="number" placeholder="Starting Length" min="1"></input> <br>
-        <input id="opt-gridsize" type="number" placeholder="Gridsize - 30 Recogmended" min="1"></input> <br>
-        <select id="barriers-select">
-          <option>Kill</option>
-          <option>Link</option>
-          <option>Rebound & Damage</option>
-          <option>Rebound</option>
-        </select>
+        <div class="input-wrapper">Starting Length:
+          <input id="opt-startinglength" type="number" placeholder="5 recommended" min="1"></input> <br> </div>
+        <div class="input-wrapper">Gridsize:
+          <input id="opt-gridsize" type="number" placeholder="30 recommended" min="1"></input> <br> </div>
+        <div class="input-wrapper">Refresh Time:
+          <input id="opt-speed" type="number" placeholder="Lower is faster" min="1"></input> <br>
+        </div>
+        <div class="input-wrapper">Barrier behaviour:
+          <select id="barriers-select">
+            <option>Kill</option>
+            <option>Link</option>
+            <option>Rebound & Damage</option>
+            <option>Rebound</option>
+          </select> <br>
+        </div>
+        <div class="input-wrapper">Tail Collision:
+          <select id="tail-collision">
+            <option>Kill</option>
+            <option>Damage</option>
+            <option>Nothing</option>
+          </select>
+        </div>
 
         <div class="switch-wrapper">Enable Incremental Speed:
-          <li class="switch-pad"></li>
-          <div class="switch r" id="switch">
+          <div class="switch r" id="switch" style="margin-top: 10px;">
             <input type="checkbox" class="checkbox" id="opt-incrementalspeed">
             <div class="knobs"></div>
             <div class="layer"></div>
           </div>
         </div>
 
-        <div class="switch-wrapper">Enable Tail Collision:
-          <li class="switch-pad"></li>
-          <div class="switch r" id="switch">
-            <input type="checkbox" class="checkbox" id="opt-tailcollision">
-            <div class="knobs"></div>
-            <div class="layer"></div>
-          </div>
-        </div>
-
         <input id="opt-speed" type="number" placeholder="Refresh Time - lower is faster" min="1"></input> <br>
-        <a onclick="transition('singleplayer-options', 'game-container'); createGame('single')" class="btn btn-back" onclick="createGame(single)">Start Game</a>
+        <a onclick="transition('singleplayer-options', 'game-container'); createGame('single')" class="btn btn-back"
+          onclick="createGame(single)">Start Game</a>
       </div>
 
 

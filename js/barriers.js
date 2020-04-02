@@ -35,7 +35,6 @@ function barriers(game, action, length) {
 function invun(game) {
     game.tailCollision = false;
     game.snakeColor = '#fff';
-
     setInterval(() => {
         game.tailCollision = true;
         game.snakeColor = $('#btn-single').css('background-color');    
