@@ -45,11 +45,10 @@
         <input id="opt-startinglength" type="number" placeholder="Starting Length" min="1"></input> <br>
         <input id="opt-gridsize" type="number" placeholder="Gridsize - 30 Recogmended" min="1"></input> <br>
         <select id="barriers-select">
-          <option>-- BARRIER BEHAVYOUR --</option>
           <option>Kill</option>
+          <option>Link</option>
           <option>Rebound & Damage</option>
           <option>Rebound</option>
-          <option>Link to the other side</option>
         </select>
 
         <div class="switch-wrapper">Enable Incremental Speed:
@@ -69,6 +68,8 @@
             <div class="layer"></div>
           </div>
         </div>
+
+        <input id="opt-speed" type="number" placeholder="Refresh Time - lower is faster" min="1"></input> <br>
         <a onclick="transition('singleplayer-options', 'game-container'); createGame('single')" class="btn btn-back" onclick="createGame(single)">Start Game</a>
       </div>
 
@@ -126,6 +127,7 @@
   <script src="/particles/particles.min.js"></script>
   <script src="/js/app.js"></script>
   <script src="/js/canvas.js"></script>
+  <script src="/js/barriers.js"></script>
   <script src="/js/game.js"></script>
 </body>
 

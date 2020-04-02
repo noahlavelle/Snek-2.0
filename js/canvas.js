@@ -17,7 +17,6 @@ function clear() {
 function end(game, length) {
     game.started = false;
     game.snake.length = length;
-    game.snake.tail.length = length;
     game.snake.x = 0;
     game.snake.y = 0;
     game.snake.moveDir = [0, 0]

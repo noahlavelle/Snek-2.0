@@ -52,13 +52,18 @@ class Snake {
 }
 
 class Game {
-    constructor(startingLength, incrementalSpeed, tailCollision, barriersKill, gridSize) {
+    constructor(startingLength, incrementalSpeed, speed, tailCollision, barriersKill, gridSize) {
+        this.speed = speed;
+        this.incrementalSpeed = incrementalSpeed;
+        this.tailCollision = tailCollision;
         this.gridSize = gridSize;
         this.startingLength = startingLength;
         this.snake = new Snake(startingLength, 0, 0);
         this.snakeColor = $('#btn-single').css('background-color');
         this.started = false;
         this.food = new Food(this.makeFoodCoords(canvas.width), this.makeFoodCoords(canvas.height));
+        this.timeout;
+        this.barriersKill = barriersKill;
         this.tick(this);
     }
 
@@ -71,6 +76,13 @@ class Game {
     }
 
     tick() {
+        if (this.incrementalSpeed) {
+            this.timeout = Math.max(1000 / ((this.snake.length + 3) * 2), 1000 / 30)
+            this.snake.length++;
+            this.snake.length--;
+        } else {
+            this.timeout = this.speed;
+        }
 
         if (this.snake.x === this.food.x & this.snake.y === this.food.y) {
             this.snake.length++;
@@ -79,10 +91,10 @@ class Game {
 
         if (this.snake.x >= w || this.snake.x < 0 ||
             this.snake.y >= h || this.snake.y < 0) {
-            end(this, this.startingLength)
+                barriers(this, this.barriersKill, this.startingLength);
         }
 
-        if (this.snake.tail.find(e => {
+        if (this.tailCollision && this.snake.tail.find(e => {
                 return e[0] === this.snake.x && e[1] === this.snake.y;
             }) && this.started) {
             end(this, this.startingLength)
@@ -106,14 +118,14 @@ class Game {
         clear()
 
         draw(this.food.x, this.food.y, this.gridSize, '#fff');
-        draw(this.snake.x, this.snake.y, this.gridSize, $('#btn-single').css('background-color'))
+        draw(this.snake.x, this.snake.y, this.gridSize, this.snakeColor)
         for (const tailItem of this.snake.tail) {
-            draw(tailItem[0], tailItem[1], this.gridSize, $('#btn-single').css('background-color'));
+            draw(tailItem[0], tailItem[1], this.gridSize, this.snakeColor);
         }
 
         keyPressed = false;
         setTimeout(() => {
             this.tick();
-        }, Math.max(1000 / ((this.snake.length + 3) * 2), 1000 / 30));
+        }, this.timeout);
     }
 }

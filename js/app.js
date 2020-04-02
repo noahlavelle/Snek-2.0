@@ -222,11 +222,13 @@ function createGame(mode) {
   switch (mode) {
     case "single":
       const startingLength = $('#opt-startinglength').val();
-      const incrementalSpeed = ! $('#opt-incrementalspeed').is(':disabled');
-      const tailCollision = ! $('#opt-tailcollision').is(':disabled');
+      const incrementalSpeed = ! document.getElementById("opt-incrementalspeed").checked
+      const speed = $('#opt-speed').val();
+      const tailCollision = ! document.getElementById("opt-tailcollision").checked;
       const barriersKill = $( "#barriers-select option:selected" ).text();
       const gridSize = $('#opt-gridsize').val();
-      const game = new Game(startingLength, incrementalSpeed, tailCollision, barriersKill, gridSize);
+      console.log(incrementalSpeed);
+      const game = new Game(startingLength, incrementalSpeed, speed, tailCollision, barriersKill, gridSize);
     break
   }
 }
