@@ -17,6 +17,25 @@ function barriers(game, action, length) {
         case "Rebound & Damage":
             if (game.snake.x < 0) {
                 game.snake.moveDir = [1, 0];
+                damage(game);
+                invun(game);
+            } else if (game.snake.x > w) {
+                game.snake.moveDir = [-1, 0];
+                damage(game);
+                invun(game);
+            } else if (game.snake.y > h) {
+                game.snake.moveDir = [0, -1];
+                damage(game);
+                invun(game);
+            } else if (game.snake.y < 0) {
+                game.snake.moveDir = [0, 1];
+                damage(game);
+                invun(game);
+            }
+            break;
+        case "Rebound":
+            if (game.snake.x < 0) {
+                game.snake.moveDir = [1, 0];
                 invun(game);
             } else if (game.snake.x > w) {
                 game.snake.moveDir = [-1, 0];
@@ -32,14 +51,18 @@ function barriers(game, action, length) {
     }
 }
 
+function damage(game) {
+    game.snake.length = game.snake.length - 6;
+    game.snake.tail.splice(0, 6);
+}
+
 function tailCollide(game, action, length) {
     switch (action) {
         case "Kill":
             end(game, length);
             break;
         case "Damage":
-            game.snake.length - 6;
-            game.snake.tail.splice(this, 6);
+            damage(game);
             invun(game);
             break;
     }
@@ -47,9 +70,7 @@ function tailCollide(game, action, length) {
 
 function invun(game) {
     game.tailCollision = false;
-    game.snakeColor = '#fff';
     setInterval(() => {
-        game.tailCollision = true;
-        game.snakeColor = $('#btn-single').css('background-color');    
+        game.tailCollision = true;;
     }, 3000);
 }

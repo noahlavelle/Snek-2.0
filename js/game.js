@@ -107,6 +107,9 @@ class Game {
             }, 1)
         }
 
+        if (this.snake.length <= 0) {
+            end(this, this.snake.startingLength)
+        }
 
         this.snake.tail.push([this.snake.x, this.snake.y]);
         if (this.snake.tail.length > this.snake.length - 1) {
