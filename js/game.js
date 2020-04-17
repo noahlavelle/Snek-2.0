@@ -53,7 +53,7 @@ class Snake {
 
 class Game {
     constructor(startingLength, incrementalSpeed, speed, tailCollision, barriersKill, gridSize, damageAmount) {
-        this.highScore = getCookie("highScore");
+        this.highScore = localStorage.getItem("highScore");
         this.score = 0;
         this.damageAmount = damageAmount;
         this.speed = speed;
@@ -96,7 +96,7 @@ class Game {
 
         if (this.score >= this.highScore) {
             this.highScore = this.score;
-            setCookie("highScore", this.highScore)
+            localStorage.setItem("highScore", this.highScore)
         }
 
         if (this.snake.x >= w || this.snake.x < 0 ||
