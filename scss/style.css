@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,900&display=swap');
-
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,900&display=swap");
 html {
   width: 100%;
   height: 100vh;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,11 +11,10 @@ html {
   --btnShadow: #404040;
   --bg: #fff;
   --color: #232323;
-  --subColor: hsl(0, 0%, 46%);
+  --subColor: #757575;
   --fieldColor: #D5BADB;
   --particlesColor: #b19cd9;
 }
-
 
 html[data-theme='Snek Dark'] {
   background: var(--lightBg);
@@ -25,7 +22,7 @@ html[data-theme='Snek Dark'] {
   --btnShadow: #2C2F33;
   --bg: #23272A;
   --color: #fff;
-  --subColor: hsl(255, 0%, 80%);
+  --subColor: #cccccc;
   --fieldColor: #2C2F33;
   --particlesColor: #89cff0;
 }
@@ -34,9 +31,9 @@ html[data-theme='OLED Dark'] {
   background: var(--lightBg);
   --btn: #1f1f1f;
   --btnShadow: #2C2F33;
-  --bg: hsl(0, 0%, 0%);
+  --bg: black;
   --color: #fff;
-  --subColor: hsl(255, 0%, 80%);
+  --subColor: #cccccc;
   --fieldColor: #1f1f1f;
   --particlesColor: #666666;
 }
@@ -53,10 +50,10 @@ html[data-theme='Banana'] {
 }
 
 canvas {
-  position:absolute; 
-  top:20px; 
-  left:20px; 
-  z-index:3;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 3;
   width: 1000px;
 }
 
@@ -74,7 +71,6 @@ canvas {
   margin-bottom: 1em;
   color: var(--color);
   background-color: var(--fieldColor);
-
 }
 
 .switch-wrapper {
@@ -92,7 +88,6 @@ canvas {
   margin-bottom: 1em;
   color: var(--color);
   background-color: var(--fieldColor);
-
 }
 
 h1 {
@@ -134,10 +129,10 @@ h2 {
   top: 50%;
   display: block;
   transform: translate(-50%, -50%);
+}
 
-  & .patch {
-    margin-top: 220px;
-  }
+.container .patch {
+  margin-top: 220px;
 }
 
 .particles-js-canvas-el {
@@ -149,63 +144,63 @@ table {
   width: 100%;
   border-collapse: collapse;
   border: 3px solid var(--btn);
+}
 
-  thead th:nth-child(1) {
-    width: 30%;
+table thead th:nth-child(1) {
+  width: 30%;
+}
 
-    &:nth-child(2) {
-      width: 20%;
-    }
+table thead th:nth-child(1):nth-child(2) {
+  width: 20%;
+}
 
-    &:nth-child(3) {
-      width: 15%;
-    }
+table thead th:nth-child(1):nth-child(3) {
+  width: 15%;
+}
 
-    &:nth-child(4) {
-      width: 35%;
-    }
-  }
+table thead th:nth-child(1):nth-child(4) {
+  width: 35%;
+}
 
-  th,
-  td {
-    padding: 20px;
-    color: var(--color);
-  }
+table th,
+table td {
+  padding: 20px;
+  color: var(--color);
+}
 
-  thead th,
-  tfoot th {
-    font-family: inherit;
-  }
+table thead th,
+table tfoot th {
+  font-family: inherit;
+}
 
-  th {
-    letter-spacing: 1px;
-    text-align: left;
-  }
+table th {
+  letter-spacing: 1px;
+  text-align: left;
+}
 
-  td {
-    letter-spacing: 1px;
-  }
+table td {
+  letter-spacing: 1px;
+}
 
-  thead,
-  tfoot {
-    background-color: var(--fieldColor);
-    color: var(--color);
-  }
+table thead,
+table tfoot {
+  background-color: var(--fieldColor);
+  color: var(--color);
+}
 
-  thead th,
-  tfoot th,
-  tfoot td {
-    background: var(--fieldColor);
-    border: 2px solid var(--btn);
-  }
+table thead th,
+table tfoot th,
+table tfoot td {
+  background: var(--fieldColor);
+  border: 2px solid var(--btn);
+}
 
-  tbody tr:nth-child(odd) {
-    background-color: var(--bg)
-  }
+table tbody tr:nth-child(odd) {
+  background-color: var(--bg);
+}
 
-  tbody tr:nth-child(even) {
-    background-color: var(--btnShadow);
-  }
+table tbody tr:nth-child(even) {
+  background-color: var(--btnShadow);
 }
 
 .under-text {
@@ -219,7 +214,7 @@ table {
 .link {
   text-decoration: none !important;
   font-weight: bold;
-  color: var(--btn)
+  color: var(--btn);
 }
 
 .sub {
@@ -230,7 +225,7 @@ table {
 
 #game {
   position: absolute;
-  border: 4px solid var(--btn)
+  border: 4px solid var(--btn);
 }
 
 .dispSpeed {

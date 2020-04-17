@@ -1,7 +1,9 @@
 const canvas = document.getElementById('game');
 const ctx = canvas.getContext('2d');
-const w = canvas.width;
-const h = canvas.height;
+const w = window.innerWidth;
+const h =window.innerHeight;
+canvas.width  = w - (w *0.019);
+canvas.height = h - (h *0.033);
 let keyPressed = false;
 
 function draw(x, y, gridSize, color) {
@@ -23,6 +25,8 @@ function end(game, length) {
     game.food = new Food(game.makeFoodCoords(canvas.width), game.makeFoodCoords(canvas.height));
 }
 
-function text(text, line) {
-
+function text(text, font, color, xOffset, yOffset) {
+    ctx.fillStyle = color;
+    ctx.font = "25px "+font;
+    ctx.fillText(text, xOffset, yOffset); 
 }

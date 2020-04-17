@@ -53,6 +53,8 @@ class Snake {
 
 class Game {
     constructor(startingLength, incrementalSpeed, speed, tailCollision, barriersKill, gridSize, damageAmount) {
+        this.highScore = getCookie("highScore");
+        this.score = 0;
         this.damageAmount = damageAmount;
         this.speed = speed;
         this.incrementalSpeed = incrementalSpeed;
@@ -79,7 +81,7 @@ class Game {
 
     tick() {
         if (this.incrementalSpeed) {
-            this.timeout = Math.max(1000 / ((this.snake.length + 3) * 2), 1000 / 30)
+            this.timeout = Math.max(1000 / ((this.snake.length + 3) * 2), 1000 / 30);
             this.snake.length++;
             this.snake.length--;
         } else {
@@ -88,7 +90,13 @@ class Game {
 
         if (this.snake.x === this.food.x & this.snake.y === this.food.y) {
             this.snake.length++;
+            this.score = this.snake.length - this.startingLength;
             this.food = new Food(this.makeFoodCoords(canvas.width), this.makeFoodCoords(canvas.height));
+        }
+
+        if (this.score >= this.highScore) {
+            this.highScore = this.score;
+            setCookie("highScore", this.highScore)
         }
 
         if (this.snake.x >= w || this.snake.x < 0 ||
@@ -123,10 +131,13 @@ class Game {
         clear()
 
         draw(this.food.x, this.food.y, this.gridSize, '#fff');
-        draw(this.snake.x, this.snake.y, this.gridSize, this.snakeColor)
+        draw(this.snake.x, this.snake.y, this.gridSize, this.snakeColor);
         for (const tailItem of this.snake.tail) {
             draw(tailItem[0], tailItem[1], this.gridSize, this.snakeColor);
         }
+
+        text("Score: " + (this.score), "Arial", '#fff', w - (w * 0.08), 30);
+        text("Highscore: " + (this.highScore), "Arial", '#fff', w - (w * 0.08), 60);
 
         keyPressed = false;
         setTimeout(() => {

@@ -127,7 +127,6 @@ function transition(pageFrom, pageTo) {
   $('#' + pageFrom).fadeOut(130, function () {
     $('#' + pageTo).fadeIn(130);
   });
-
 }
 
 function onload() {
@@ -229,9 +228,9 @@ function createGame(mode) {
       const barriersKill = $( "#barriers-select option:selected" ).text();
       let gridSize = $('#opt-gridsize').val();
       let damageAmount = $('#opt-damage').val();
-      if (startingLength === "" || startingLength == 0) {startingLength = 6}
-      if (gridSize === "" || gridSize == 0) {gridSize = 30}
-      if (damageAmount === "" || damageAmount == 0) {damageAmount = 6}
+      if (startingLength === "" || startingLength <= 0) {startingLength = 6}
+      if (gridSize === "" || gridSize <= 0) {gridSize = 30}
+      if (damageAmount === "" || damageAmount <= 0) {damageAmount = 6}
       const game = new Game(startingLength, incrementalSpeed, speed, tailCollision, barriersKill, gridSize, damageAmount);
     break
   }
